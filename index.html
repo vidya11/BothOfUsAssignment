@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<title>Both Of Us Web Assignment</title>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class = "container">
+<div ng-app = "mainApp" ng-controller = "bothOfUsController">
+<input type = "text" placeholder = "Enter location" ng-model = "location"> 
+<button type= "submit" ng-click = "subm()">Submit </button>
+
+<table class= "table table-bordered" ng-hide = "showTable">
+<tr>
+<th>Id</th>
+<th>Publish Date</th>
+<th>Type</th>
+<th>Location</th>
+<th>Description</th>
+<th>Content</th>
+<th>Location</th>
+<th>Human date</th>
+<th>Latitude</th>
+<th>Longitude</th>
+<th>Administrative area</th>
+</tr>
+<tr ng-repeat = "detail in details track by $index">
+<td>{{detail.id}}</td>
+<td>{{detail.pubdate_iso8601}}</td>
+<td>{{detail.title_type}}</td>
+<td>{{detail.title_location}}</td>
+<td>{{detail.description}}</td>
+<td><a href = "#showcnt" ng-click = "showContent($index)">{{detail.content_teaser}}</a>
+<div id="mainContent" ng-hide="showCont"></div>
+</td>
+<td>{{detail.location_string}}</td>
+<td>{{detail.date_human}}</td>
+<td>{{detail.lat}}</td>
+<td>{{detail.lng}}</td>
+<td>{{detail.administrative_area_level_1}}</td>
+</tr>
+</table>
+</div>
+</div>
+</body>
+
+<script src="bothOfUs.js">
+</script>
+
+</html>
